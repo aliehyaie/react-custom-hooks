@@ -14,7 +14,7 @@ type CountDownHookType = (total: number, options: { autoStart?: boolean, ms?: nu
     set: (total: number) => void;
 };
 
-export const useCountDown: CountDownHookType = (
+const useCountDown: CountDownHookType = (
     total: number,
     {ms = 1000, autoStart}
 ) => {
@@ -61,3 +61,5 @@ export const useCountDown: CountDownHookType = (
 
     return {counter, days, hours, minutes, seconds, isFinished, start, pause, set, reset};
 };
+
+export default useCountDown;

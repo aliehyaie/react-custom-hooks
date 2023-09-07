@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 
-export function useMediaQuery(query: string): boolean {
+const useMediaQuery = (query: string): boolean => {
     const getMatches = (query: string): boolean => {
         // Prevents SSR issues
         if (typeof window !== 'undefined') {
@@ -23,9 +23,11 @@ export function useMediaQuery(query: string): boolean {
         matchMedia.addEventListener('change', handleChange)
 
         return () => {
-                matchMedia.removeEventListener('change', handleChange)
+            matchMedia.removeEventListener('change', handleChange)
         }
     }, [query])
 
     return matches
 }
+
+export default useMediaQuery;
